@@ -81,9 +81,18 @@ Hasil dari implementasi berupa nilai cosine / similaritas antara film yang satu 
 
 Tabel 1. Hasil penerapan TOP-N Recomendation
 
-|   Id   |           movie_title             |                     genre                    |
-| ------ | --------------------------------- | -------------------------------------------- |
-|   1    |          Toy Story (1995)         | Adventure,Animation,Children,Comedy,Fantasy  |
+|movie_title|Thousand Words, A(2012)|Zeitgeist:Moving Forward(2011)|he Importance of Being Earnest(1952)|Police Academy: Mission to Moscow(1994)| Runner Runner (2013)|
+| --------------- | --------------- | --------------- | --------------- | --------------- | --------------- |
+|   Eros (2004)    | 0.678847	 | 0.0 | 0.000000 | 0.000000 | 0.405595 |
+| Camille Claudel (1988) | 0.678847	 | 0.0 | 0.000000 | 0.000000 | 0.405595 |
+|   Road Warrior, The (Mad Max 2) (1981)    | 0.000000	 | 0.0 | 0.000000 | 0.000000 | 0.233084 |
+| Draughtsman's Contract, The (1982) | 0.678847	 | 0.0 | 0.596332 | 0.181494 | 0.405595 |
+| Forrest Gump (1994) | 0.463347	 | 0.0 | 0.596332 | 0.181494 | 0.127577 |
+|  Da geht noch was! (2013)  | 0.687253	 | 0.0 | 0.884500 | 0.269198 | 0.189226 |
+|  Psycho (1998) | 0.678847	 | 0.0 | 0.000000 | 0.500024 | 0.710028 |
+| Prince of Tides, The (1991) | 0.366844	 | 0.0 | 0.691031 | 0.000000 | 0.219181 |
+| Sliver (1993) | 0.000000 | 0.0 | 0.000000 | 0.000000 | 0.592960 |
+| Suburban Commando (1991) | 0.283770 | 0.0 | 0.220488 | 0.206157 | 0.000000 |
 
 ## Evaluation
 
