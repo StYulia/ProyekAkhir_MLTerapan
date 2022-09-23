@@ -77,7 +77,7 @@ Pada tahap modeling model _Content Based Filtering_ dengan tahapan sebagai berik
   pada tahap ini bertujuan untuk menghitung derajat kesamaan (similarity degree) antar film dengan teknik cosine similarity
  
 - Top-N Recommendation
-Hasil dari implementasi berupa nilai cosine / similaritas antara restoran yang satu dengan restoran lainnya. Kandidat item-item yang didapat dari perhitungan similaritas selanjutnya dijadikan rekomendasi untuk pengguna. Hasil dari penerapan nya dapat dilihat pada tabel berikut:
+Hasil dari implementasi berupa nilai cosine / similaritas antara film yang satu dengan film lainnya. Kandidat item-item yang didapat dari perhitungan similaritas selanjutnya dijadikan rekomendasi untuk pengguna. Hasil dari penerapan nya dapat dilihat pada tabel berikut:
 
 Tabel 1. Hasil penerapan TOP-N Recomendation
 
