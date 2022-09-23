@@ -1,44 +1,62 @@
 # ProyekAkhir_MLTerapan - SITI YULIANINGSIH
-laporan proyek akhir Machine Learning terapan membuat sistem rekomendasi film. SIB3 Kampus merdeka dicoding
 
 ## Domain Proyek
-Pertumbuhan penduduk yang terus meningkat mendorong tingginya kebutuhan masyarakat akan tempat tinggal. Tempat tinggal atau rumah merupakan salah satu dari banyaknya kebutuhan primer bagi manusia.  Maka dari itu sangat penting untuk membuat perencanaan agar tiap keluarga dapat memiliki tempat tinggal pribadi.  Dalam perencanaan tersebut dibutuhkan prediksi atau perkiraan harga di masa mendatang.  Tiap manusia membutuhkan rumah untuk tempat berlindung dan sebagai tempat berkumpul dan berlangsungnya aktivitas keluarga, sekaligus sebagai sarana investasi. Fungsi rumah juga telah berubah, dari yang semula hanya sekedar sebagai tempat berlindung. Kini sebuah rumah tak cukup hanya untuk berteduh namun juga dituntut untuk mengakomodir kebutuhan dan keinginan pemiliknya. Seperti luas lahan, luas bangunan  berdiri,  banyaknya  ruangan,  hingga  ketersediaan  tempat  parkir  mobil.
+Film merupakan salah satu dunia hiburan yang sangat digemari oleh masyarakat. Dikarenakan dengan semakin ramainya penggemar film, baik film Asia maupun film Barat. Maka timbul pemikiran untuk mengembangkan informasi seputar dunia industri perfilman. Dengan cara memberikan informasi film – film kepada konsumen, dengan maksud agar konsumen tertarik dan berminat untuk menonton film – film yang ditawarkan dan masyarakat mengetahui gambaran film yang akan ditonton.
 
-Harga adalah salah satu hal yang dipertimbangkan oleh pembeli rumah oleh masyarakat. menurut penelitian yang dibuat oleh Agustinus Primnanda Alasan masyarakat mempertimbangkan faktor harga karena hal tersebut berkaitan dengan pendapatan mereka. Bagi mereka yang memiliki pendapatan besar mungkin harga tidak akan menjadi masalah, tapi mereka lebih mempertimbangkan luas dan kualitas produk dalam hal ini faktor bangunan.
-Dengan melihat kondisi semacam ini mendorong produsen untuk melebarkan sayapnya di bidang perumahan. Maka tidak mengherankan jika akhirakhir ini bisnis di bidang perumahan semakin marak, banyak perusahaan muncul dengan memberikan berbagai macam fasilitas dalam menawarkan produknya. Perkembangan bisnis perumahan semakin marak dewasa ini, tidak hanya terpusat di kota-kota besar akan tetapi sudah meluas di kota-kota kecil.
-penelitian agustinus:[FAKTOR-FAKTOR YANG MEMPENGARUHI KONSUMEN DALAM MEMBELI RUMAH)(http://eprints.undip.ac.id/23081/)
+Genre dalam film dapat menunjukkan kepada penonton poin utama referensi untuk sebuah film  dan dapat  berfungsi sebagai  quasi-search karakteristik  yang menyebabkan penonton dapat mengetahui gambaran besar tentang film tersebut tanpa harus melihat film tersebut. Dengan adanya genre, industri perfilman dapat memberitahu kepada penonton terdapat kesenangan  yang mirip  seperti film  sebelumnya dan  genre merupakan sebuah faktor yang penting untuk penonton dalam membuat keputusan tentang film apa yang ingin dilihat.  
+
+penelitian Muhammad Fadhiil Rachman:[Sistem Rekomendasi Film Berdasarkan Pengalaman Pengguna Menggunakan Algoritma Simple Additive Weighting Dan Content-Based Filtering](https://www.researchgate.net/publication/325260942_Sistem_Rekomendasi_Film_Berdasarkan_Pengalaman_Pengguna_Menggunakan_Algoritma_Simple_Additive_Weighting_Dan_Content-Based_Filtering)
 
 ## Business Understanding
 ### Problem Statements
-Suatu perusahaan harus selalu survive agar dapat terus bersaing dengan perusahaan-perusahaan sejenis yang sama-sama bergerak dalam bisnis perumahan. Karena banyaknya perusahaan yang bergerak di bidang perumahan, maka perusahaan harus mengenali apa yang mempengaruhi harga jual pada perumahan lain. Jangan sampai kita yang seharusnya mendapat keuntungan karna terdapat kualitas yang bagus pada perumahan kita, kita malah menjualnya dengan harga rendah.
-Berdasarkan kondisi yang telah diuraikan sebelumnya, perusahaan akan mengembangkan sebuah sistem prediksi harga rumah untuk menjawab permasalahan berikut:
-- Fitur apa yang paling mempengaruhi harga rumah?
+produksi membuat calon penonton kesulitan dalam menentukan film yang akan ditontonnya. Untuk mencari film tentunya akan memakan waktu, selain itu film yang sudah ditentukan untuk ditonton belum tentu sesuai dengan keinginan calon penonton setelah menontonnya, sehingga akan menghabiskan waktu lebih banyak lagi. Menonton film melalui bioskop, platform penyedia layanan streaming, maupun penyewaan dan pembelian kaset DVD juga diperlukan biaya, akan terbuang sia-sia apabila film yang ditonton tidak sesuai keinginan.
+Berdasarkan kondisi yang telah diuraikan sebelumnya, perusahaan akan mengembangkan sebuah sistem rekomendasi film untuk menjawab permasalahan berikut:
+- Film apa yang memiliki genre sama dengan film yang telah ditonton sebelumnya?
+- Berdasarkan data mengenai pengguna, bagaimana membuat sistem rekomendasi yang dipersonalisasi dengan teknik content-based filtering?
 
 ### Goals
-- Mengetahui fitur yang paling berkorelasi dengan harga rumah.
-
-**Metodologi**
-Prediksi harga adalah tujuan yang ingin dicapai. Seperti yang kita tahu, harga merupakan variabel kontinu. Dalam predictive analytics, saat membuat prediksi variabel kontinu artinya Anda sedang menyelesaikan permasalahan regresi. Oleh karena itu, metodologi pada proyek ini adalah: membangun model regresi dengan harga diamonds sebagai target.
-**Metrik**
-Pengembangan model akan menggunakan beberapa algoritma machine learning yaitu K-Nearest Neighbor, Random Forest, dan Boosting Algorithm. Dari ketiga model ini, akan dipilih satu model yang memiliki nilai kesalahan prediksi terkecil.
+- Mengetahui film yang paling mirip dengan film yang diinginkan penonton.
+- Menghasilkan sejumlah rekomendasi film yang dipersonalisasi untuk pengguna dengan teknik content-based filtering
 
 ## Data Understanding
-Data yang akan digunakan pada proyek kali ini adalah housePrice dataset. Dataset ini memiliki 3.474 sampel data dengan berbagai kualitas atau karakteristik dan harga. Karakteristik yang dimaksud di sini adalah fitur non-numerik seperti Parking, Warehouse, Elevator, address, serta fitur numerik seperti address, Room dan  Area. Kesembilan fitur ini adalah fitur yang akan Anda gunakan dalam menemukan pola pada data, sedangkan harga merupakan fitur target.
-Adapun uraikanlah seluruh variabel atau fitur pada data, sebagai berikut:
+Data yang akan digunakan pada proyek kali ini adalah movie-lens-dataset. Dataset ini memiliki empat file CSV. yaitu links.csv, movies.csv, ratings.csv, dan tags.csv.   
+Adapun uraikanlah seluruh file dan fitur pada data, sebagai berikut:
 
-- Parking: adalah keterangan apakah rumah tersebut tersedia tempat parker atau tidak
+- links.csv = Pengidentifikasian yang dapat digunakan untuk menautkan ke sumber data film lainnya. di dalam file tersebut terdapat fitur:
+ 
+  -movieId: pengenal untuk film yang digunakan oleh [Movie Lens](https://movielens.org)
+ 
+  -imdbId: pengenal untuk film yang digunakan oleh [IMDb](http://www.imdb.com)
+ 
+  -tmdbId: pengenal untuk film yang digunakan oleh [TMDB](https://www.themoviedb.org)
+  
+- movies.csv =  Informasi mengenai film. Setiap baris pada file ini mewakili satu film, dan memiliki fitur berikut:
+  
+  -movieId: Id Unik untuk setiap Film
+  
+  -title: Nama film dengan Tahun dalam tanda kurung
+ 
+  -genres: Jenis kategori film
+  
+- ratings.csv =  Berisi informasi penilaian/peringkat oleh penonton, pada file ini berisi fitur:
 
-- Warehouse: berisi informasi apakah rumah terdapat Gudang atau tidak
-- Elevator: informasi apakah rumah terdapat tangga  atau tidak
-- Room: informasi yang berisi ada berapa ruangan pada rumah tersebut
-- Area: informasi mengenai luas bangunan
-- Price: informasi harga
-- address: berisi informasi tempat rumah tersebut berada
-- price(USD): berisi informasi harga dalam USD
+  -userId: Id Unik yang disediakan untuk setiap Pengguna
 
-Dataset dapat di unduh pada link berikut: [housePrice dataset](https://www.kaggle.com/datasets/mokar2001/house-price-tehran-iran)
+  -movieId: Id Unik untuk setiap Film
 
-- hal pertama yang dilakukan adalah import library yang dibutuhkan
+  -rating: Peringkat yang dibuat dalam skala bintang 5
+
+  -timestamp: menunjukkan detik Coordinated Universal Time(UTC)
+  
+- tags.csv = Tag yang diterapkan ke satu film oleh satu pengguna, berisi fitur: userId, movieId, timestamp, dan tag yaitu metadata yang dibuat pengguna tentang film
+
+pada proyek sistem rekomendasi ini hanya memerlukan 2 file yaitu file movies.csv dan file rating.csv. 
+Dataset dapat di unduh pada link berikut: [Movie-lens-dataset](https://www.kaggle.com/datasets/aigamer/movie-lens-dataset?select=links.csv)
+
+- hal pertama yang dilakukan adalah menginstall kaggle agar dapat mendownload dataset
+- Membaca data-data yang telah di download dengan menggunakan fungsi pandas
+
+===========YG DULU==========
 - lalu melakukan Exploratory Data Analysis, yang bertujuan  untuk mengetahui apakah tipe data pada setiap kolom sudah sesuai atau belum
 - setelah itu menangani missing value jika ada. Pada dataset kali ini terdapat 10  sampel missing value pada fitur room. Karena 10 data tersebut bernilai 0. untuk mengatasi missing value dilakukan penghapusan sampe pada fitur room yang bernilai 0. mengapa demikian? karena 10 merupakan jumlah yang kecil dibandingkan dengan seluruh sampel yaitu 3.474 jadi kita tidak akan kehilangan banyak informasi
 -	Selanjutnya membagi fitur menjadi dua bagian dengan proses Univariate Analysis. Dengan code :
