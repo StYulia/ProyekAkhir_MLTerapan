@@ -77,7 +77,13 @@ Pada tahap modeling model _Content Based Filtering_ dengan tahapan sebagai berik
   pada tahap ini bertujuan untuk menghitung derajat kesamaan (similarity degree) antar film dengan teknik cosine similarity
  
 - Top-N Recommendation
-Hasil dari implementasi berupa nilai cosine / similaritas antara restoran yang satu dengan restoran lainnya. Kandidat item-item yang didapat dari perhitungan similaritas selanjutnya dijadikan rekomendasi untuk pengguna
+Hasil dari implementasi berupa nilai cosine / similaritas antara restoran yang satu dengan restoran lainnya. Kandidat item-item yang didapat dari perhitungan similaritas selanjutnya dijadikan rekomendasi untuk pengguna. Hasil dari penerapan nya dapat dilihat pada tabel berikut:
+
+Tabel 1. Hasil penerapan TOP-N Recomendation
+
+|   Id   |           movie_title             |                     genre                    |
+| ------ | --------------------------------- | -------------------------------------------- |
+|   1    |          Toy Story (1995)         | Adventure,Animation,Children,Comedy,Fantasy  |
 
 ## Evaluation
 
@@ -87,15 +93,15 @@ keluaran sistem rekomendasi ini adalah berupa top-N recommendation. Oleh karena 
 Dalam kasus ini, nanti kita akan mencari film yang mirip dengan Toy Story (1995), sehingga kita perlu drop Toy Story (1995) agar tidak muncul dalam daftar rekomendasi yang diberikan nanti. 
 setekah dilakukan pencarian film yang mirip dengan Toy Story (1995) didapatkan hasil seperti pada tabel berikut:
 
-Tabel 1. Hasil pencarian Film yang mirip Toy Story (1995)
+Tabel 2. Hasil pencarian Film yang mirip Toy Story (1995)
 
 |                   movie_title                   |                     genre                    |
 | ----------------------------------------------- | -------------------------------------------- |
-|        Emperor's New Groove, The (2000)         | Adventure|Animation|Children|Comedy|Fantasy  |
-|                Toy Story 2 (1999)               | Adventure|Animation|Children|Comedy|Fantasy  |
-|                  Turbo (2013)                   | Adventure|Animation|Children|Comedy|Fantasy  |
-|              Shrek the Third (2007)             | Adventure|Animation|Children|Comedy|Fantasy  |
-| Adventures of Rocky and Bullwinkle, The (2000)  | Adventure|Animation|Children|Comedy|Fantasy  |
+|        Emperor's New Groove, The (2000)         | Adventure,Animation,Children,Comedy,Fantasy  |
+|                Toy Story 2 (1999)               | Adventure,Animation,Children,Comedy,Fantasy  |
+|                  Turbo (2013)                   | Adventure,Animation,Children,Comedy,Fantasy  |
+|              Shrek the Third (2007)             | Adventure,Animation,Children,Comedy,Fantasy  |
+| Adventures of Rocky and Bullwinkle, The (2000)  | Adventure,Animation,Children,Comedy,Fantasy  |
 
 
 
