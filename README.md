@@ -5,8 +5,6 @@ Film merupakan salah satu dunia hiburan yang sangat digemari oleh masyarakat. Di
 
 Genre dalam film dapat menunjukkan kepada penonton poin utama referensi untuk sebuah film  dan dapat  berfungsi sebagai  quasi-search karakteristik  yang menyebabkan penonton dapat mengetahui gambaran besar tentang film tersebut tanpa harus melihat film tersebut. Dengan adanya genre, industri perfilman dapat memberitahu kepada penonton terdapat kesenangan  yang mirip  seperti film  sebelumnya dan  genre merupakan sebuah faktor yang penting untuk penonton dalam membuat keputusan tentang film apa yang ingin dilihat.  
 
-penelitian Muhammad Fadhiil Rachman:[Sistem Rekomendasi Film Berdasarkan Pengalaman Pengguna Menggunakan Algoritma Simple Additive Weighting Dan Content-Based Filtering](https://www.researchgate.net/publication/325260942_Sistem_Rekomendasi_Film_Berdasarkan_Pengalaman_Pengguna_Menggunakan_Algoritma_Simple_Additive_Weighting_Dan_Content-Based_Filtering)
-
 ## Business Understanding
 ### Problem Statements
 produksi membuat calon penonton kesulitan dalam menentukan film yang akan ditontonnya. Untuk mencari film tentunya akan memakan waktu, selain itu film yang sudah ditentukan untuk ditonton belum tentu sesuai dengan keinginan calon penonton setelah menontonnya, sehingga akan menghabiskan waktu lebih banyak lagi. Menonton film melalui bioskop, platform penyedia layanan streaming, maupun penyewaan dan pembelian kaset DVD juga diperlukan biaya, akan terbuang sia-sia apabila film yang ditonton tidak sesuai keinginan.
@@ -70,17 +68,41 @@ Dataset dapat di unduh pada link berikut: [Movie-lens-dataset](https://www.kaggl
 - Membuat dictionary untuk data ‘movie_id’, movie_title, dan movie_genre
 
 ## Modeling
-Pada tahap modeling model Content Based Filtering dnegan tahapan sebagai berikut:
+Pada tahap modeling model _Content Based Filtering_ dengan tahapan sebagai berikut:
+
 - TF-IDF Vectorizer
   Pada tahap ini, adalah tahap untuk membangun sistem rekomendasi sederhana berdasarkan genre pada film. Teknik ini digunakan pada sistem rekomendasi untuk menemukan representasi fitur penting dari setiap genre. pada proyek ini, kita menggunakan fungsi tfidfvectorizer() dari library sklearn. untuk melihat matriks tf-idf ke beberapa movie (movie_title) dan kategori genre (genre) dibuat dataframe untuk melihat tf-idf matrix dengan ketentuan Kolom diisi dengan genre dan Baris diisi dengan judul film
 
 - Cosine Similarity
   pada tahap ini bertujuan untuk menghitung derajat kesamaan (similarity degree) antar film dengan teknik cosine similarity
+ 
+- Top-N Recommendation
+Hasil dari implementasi berupa nilai cosine / similaritas antara restoran yang satu dengan restoran lainnya. Kandidat item-item yang didapat dari perhitungan similaritas selanjutnya dijadikan rekomendasi untuk pengguna
 
 ## Evaluation
 
-keluaran sistem rekomendasi ini adalah berupa top-N recommendation. Oleh karena itu, kita memberikan sejumlah rekomendasi restoran pada pengguna yang diatur dalam parameter k. Dengan menggunakan argpartition, kita mengambil sejumlah nilai k tertinggi dari similarity data (dalam kasus ini: dataframe cosine_sim_df). Kemudian, mengambil data dari bobot (tingkat kesamaan) tertinggi ke terendah. Data ini dimasukkan ke dalam variabel closest. Berikutnya, kita perlu menghapus movie_title yang yang dicari agar tidak muncul dalam daftar rekomendasi.
-Dalam kasus ini, nanti kita akan mencari film yang mirip dengan Toy Story (1995), sehingga kita perlu drop Toy Story (1995) agar tidak muncul dalam daftar rekomendasi yang diberikan nanti. 
-setekah dilakukan pencarian film yang mirip dengan Toy Story (1995) didapatkan hasil seperti pada gambar berikut:
+Pada Evaluasi model kali ini menggunakan matrik precision. precision adalah jumlah item rekomendasi yang relevan.
 
-![image](https://drive.google.com/uc?export=view&id=1h7cQD0GzURiJwV7BDH0oa5URLJswa4mR)
+keluaran sistem rekomendasi ini adalah berupa top-N recommendation. Oleh karena itu, kita memberikan sejumlah rekomendasi film pada pengguna yang diatur dalam parameter k. Dengan menggunakan argpartition, kita mengambil sejumlah nilai k tertinggi dari similarity data (dalam kasus ini: dataframe cosine_sim_df). Kemudian, mengambil data dari bobot (tingkat kesamaan) tertinggi ke terendah. Data ini dimasukkan ke dalam variabel closest. Berikutnya, kita perlu menghapus movie_title yang yang dicari agar tidak muncul dalam daftar rekomendasi.
+Dalam kasus ini, nanti kita akan mencari film yang mirip dengan Toy Story (1995), sehingga kita perlu drop Toy Story (1995) agar tidak muncul dalam daftar rekomendasi yang diberikan nanti. 
+setekah dilakukan pencarian film yang mirip dengan Toy Story (1995) didapatkan hasil seperti pada tabel berikut:
+
+Tabel 1. Hasil pencarian Film yang mirip Toy Story (1995)
+
+|                   movie_title                   |                     genre                    |
+| ----------------------------------------------- | -------------------------------------------- |
+|        Emperor's New Groove, The (2000)         | Adventure|Animation|Children|Comedy|Fantasy  |
+|                Toy Story 2 (1999)               | Adventure|Animation|Children|Comedy|Fantasy  |
+|                  Turbo (2013)                   | Adventure|Animation|Children|Comedy|Fantasy  |
+|              Shrek the Third (2007)             | Adventure|Animation|Children|Comedy|Fantasy  |
+| Adventures of Rocky and Bullwinkle, The (2000)  | Adventure|Animation|Children|Comedy|Fantasy  |
+
+
+
+Dari hasil rekomendasi di atas, diketahui bahwa Toy Story (1995) termasuk kedalam genre Adventure|Animation|Children|Comedy|Fantasy. Dari 5 item yang direkomendasikan, seluruh item memiliki genre Adventure|Animation|Children|Comedy|Fantasy(similar). Artinya, precision sistem sebesar 5/5 atau 100%.
+
+## References
+
+Rachman, M. F., 2018. Sistem Rekomendasi Film Berdasarkan Pengalaman Pengguna Menggunakan Algoritma Simple Additive Weighting Dan Content-Based Filtering. researchgate, pp. 1-8.
+
+
